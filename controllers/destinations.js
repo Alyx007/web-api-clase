@@ -1,15 +1,14 @@
-
-const pool = require()
+const DestServices = require('../services/destinations.js')
 
 module.exports = {
-    getAllDest : (req, res, next) => {
 
-        pool.query('SELECT * FROM destinations', (error, results) => {
-            if (error)
-            throw error
-            destinations = results.rows
+    getAllDest : async (req, res, next) => {
+        try {
+            const destinations = await DestServices.getAllDest();
             res.json({destinations})
-          })
-
+        } catch(err) {
+            res.json({"message": `Error while retrieving data. Err: ${err}`})
+        }
+       
     }
 }
