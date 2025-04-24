@@ -19,5 +19,5 @@ app.get('/', (req, res) => {
 app.use(require('./routes/routes.js'))
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`App listening on port ${port}`)
 })
